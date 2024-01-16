@@ -10,5 +10,5 @@ app.get('/scores', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor en ejecución en http://localhost:${PORT}`);
+  console.log(`Server läuft auf http://localhost:${PORT}`);
 });
