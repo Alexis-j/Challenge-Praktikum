@@ -1,15 +1,19 @@
-// 1. Import the required modules:
-//    a. fs module for file system operations.
-//    b. path module for working with file paths.
-//    c. calculateScores function from '../src/scoring'.
+const fs = require('fs');
+const path = require('path');
+const { calculateScores } = require('../src/scoring');
 
-// 2. Define a test case for 'Calcula correctamente los puntajes':
-//    a. Set the test file path to 'src/challenge.answers.json'.
-//    b. Read the content of the JSON file into rawSurveyData using fs.
-//    c. Parse the rawSurveyData into an object using JSON.parse.
-//    d. Call the calculateScores function with the surveyData.
-//    e. Define the expected scores based on the content of challenge.answers.json.
-//    f. Log the calculated scores to the console for inspection.
-//    g. Use Jest's expect function to assert that the calculated scores match the expected scores.
+test('Calculates scores correctly', () => {
+  // Ruta al archivo JSON con datos de la encuesta
+  const filePath = path.resolve(__dirname, '../src/challenge.answers.json');
 
-// 3. End of the test script.
+  // Lee el contenido del archivo JSON
+  const rawSurveyData = fs.readFileSync(filePath, 'utf-8');
+
+  // Convierte el contenido del archivo JSON a un objeto
+  const surveyData = JSON.parse(rawSurveyData);
+
+  // Llama a la función y verifica los resultados esperados
+  const scores = calculateScores(surveyData);
+
+  expect(scores)
+});

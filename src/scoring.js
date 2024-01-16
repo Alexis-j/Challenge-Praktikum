@@ -1,28 +1,58 @@
-// 1. Import the required modules:
-//   a. fs module for file system operations.
+const fs = require('fs');
 
-// 2. Define a function roundToOneDecimal:
-//    a. Take a numerical value.
-//    b. Return the value rounded to one decimal place.
+// Agrega la función roundToOneDecimal para redondear los puntajes a una decimal
+function roundToOneDecimal(value) {
+  return parseFloat(value.toFixed(1));
+}
 
-// 3. Define a function readSurveyData:
-//    a. Read the survey data from the 'src/challenge.answers.json' file.
-//    b. Parse the JSON data.
-//    c. Return the parsed data.
+function readSurveyData() {
+  const data = fs.readFileSync('src/challenge.answers.json', 'utf-8');
+  return JSON.parse(data);
+}
 
-// 4. Define a function calculateScores:
-//    a. Read survey data using readSurveyData.
-//    b. Define a function filterResponsesByGender:
-//       i. Take a gender parameter.
-//       ii. Filter responses based on gender.
-//    c. Define a function calculateAverage:
-//       i. Take an array of responses.
-//       ii. Calculate the average rating.
-//       iii. Filter out responses without a numeric 'rating'.
-//       iv. Handle cases where there are not enough valid responses.
-//    d. Filter responses by gender (female, male, diverse).
-//    e. Calculate average scores for each gender using calculateAverage.
-//    f. Check for null scores and log a message if needed.
-//    g. Return an object with the calculated scores.
+function calculateScores() {
+  const surveyData = readSurveyData();
 
-// 5. Export the calculateScores function for external use.
+  const filterResponsesByGender = (gender) => surveyData.filter((response) => response.gender === gender);
+
+  const calculateAverage = (responses) => {
+    if (responses.length < 3) {
+      return null;
+    }
+
+    // Filtra solo las respuestas con un valor numérico en la propiedad 'rating'
+    const validResponses = responses.filter(response => typeof response.rating === 'number');
+
+    // Verifica si no hay respuestas válidas después del filtrado
+    if (validResponses.length === 0) {
+      console.error('No hay respuestas válidas con valor numérico para calcular el promedio.');
+      return null;
+    }
+
+    // Realiza el cálculo solo con respuestas válidas
+    const totalRating = validResponses.reduce((sum, response) => sum + response.rating, 0);
+
+    return roundToOneDecimal(totalRating / validResponses.length);
+  };
+
+  const femaleResponses = filterResponsesByGender('female');
+  const maleResponses = filterResponsesByGender('male');
+  const diverseResponses = filterResponsesByGender('diverse');
+
+  const femaleScore = calculateAverage(femaleResponses);
+  const maleScore = calculateAverage(maleResponses);
+  const diverseScore = calculateAverage(diverseResponses);
+
+  // Verifica si algún puntaje es null y ajusta según tus necesidades
+  if (femaleScore === null || maleScore === null || diverseScore === null) {
+    console.error('Not enough responses for some genders.');
+  }
+
+  return {
+    femaleScore,
+    maleScore,
+    diverseScore,
+  };
+}
+
+module.exports = { calculateScores };
