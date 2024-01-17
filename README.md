@@ -13,3 +13,61 @@ Die JSON-Response hat folgendes Format:
 "diverseScore": 9.5,
 }
 
+
+
+# Challenge Praktikum - Node, Express und Jest
+
+Dieses Projekt ist eine REST-API, die mit Node und Express entwickelt wurde,
+um Antworten aus einem Umfragesystem zu aggregieren und Punkte nach Geschlecht zu berechnen.
+
+Anleitung
+Installation
+Klone das Repository:
+  git clone https://github.com/dein-benutzername/Challenge-Praktikum.git
+  cd Challenge-Praktikum
+
+  Installiere die Abhängigkeiten:
+  npm install express jest
+
+Verwendung
+Starte den Server:
+  node src/server.js
+
+Greife auf die Punkteseite unter http://localhost:3000 zu.
+
+Projektstruktur
+  src/server.js: Hauptdatei, die den Server startet.
+  src/scoring.js: Enthält die Logik zur Berechnung der Punkte.
+  tests/scoring.test.js: Jest-Testdatei.
+
+Tests
+Führe die Tests mit folgendem Befehl aus
+  npx jest
+
+Beiträge
+  Fühle dich frei, durch das Erstellen von Pull Requests beizutragen.
+
+Probleme und Verbesserungen
+  Wenn du auf Probleme stößt oder Ideen zur Verbesserung des Projekts hast, öffne ein Issue.
+
+
+
+
+
+
+Estructura del Proyecto
+src/server.js: Archivo principal que inicia el servidor.
+src/scoring.js: Contiene la lógica para calcular los puntajes.
+tests/scoring.test.js: Archivo de pruebas Jest.
+Pruebas
+Ejecuta las pruebas con el siguiente comando:
+
+
+npx jest
+
+
+Contribuciones
+Siéntete libre de contribuir mediante la creación de pull requests.
+
+Problemas y Mejoras
+Si encuentras algún problema o tienes ideas para mejorar el proyecto, abre un issue.
