@@ -3,17 +3,18 @@ const path = require('path');
 const { calculateScores } = require('../src/scoring');
 
 test('Calculates scores correctly', () => {
-  // Ruta al archivo JSON con datos de la encuesta
+  // Path to the JSON file with survey data
   const filePath = path.resolve(__dirname, '../src/challenge.answers.json');
 
-  // Lee el contenido del archivo JSON
+  // Read the content of the JSON file
   const rawSurveyData = fs.readFileSync(filePath, 'utf-8');
 
-  // Convierte el contenido del archivo JSON a un objeto
+  // Convert the content of the JSON file to an object
   const surveyData = JSON.parse(rawSurveyData);
 
-  // Llama a la función y verifica los resultados esperados
+  // Call the function and check the expected results
   const scores = calculateScores(surveyData);
 
-  expect(scores)
+  // Check that the returned scores are truthy (not undefined or null)
+  expect(scores).toBeTruthy();
 });
