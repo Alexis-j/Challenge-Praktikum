@@ -38,6 +38,7 @@ Greife auf die Punkteseite unter: http://localhost:3000 zu.
 
 
 #### Projektstruktur
+
   src/server.js: Hauptdatei, die den Server startet.
   src/scoring.js: Enthält die Logik zur Berechnung der Punkte.
   tests/scoring.test.js: Jest-Testdatei.
