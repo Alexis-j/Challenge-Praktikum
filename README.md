@@ -1,6 +1,4 @@
-Challenge für Engineer Praktikum - Node,
-Express und Jest
-Diverlyze
+# Challenge für Engineer Praktikum - Node, Express und JestDiverlyze
 
 Entwickle eine REST-API mit Node und Express, die lediglich einen GET-Endpoint bereitstellt.
 Hier geht es darum, Antworten aus einem Umfrage-System zu aggregieren und für die
@@ -20,54 +18,36 @@ Die JSON-Response hat folgendes Format:
 Dieses Projekt ist eine REST-API, die mit Node und Express entwickelt wurde,
 um Antworten aus einem Umfragesystem zu aggregieren und Punkte nach Geschlecht zu berechnen.
 
-Anleitung
-Installation
-Klone das Repository:
-  git clone https://github.com/dein-benutzername/Challenge-Praktikum.git
-  cd Challenge-Praktikum
+## Anleitung
 
-  Installiere die Abhängigkeiten:
-  npm install express jest
+### Installation
+#### Klone das Repository:
 
-Verwendung
+  `git clone git@github.com:Alexis-j/Challenge-Praktikum.git`
+  `cd Challenge-Praktikum`
+
+#### Installiere die Abhängigkeiten:
+
+  `npm install express jest`
+
+#### Verwendung
 Starte den Server:
-  node src/server.js
+  `node src/server.js`
 
-Greife auf die Punkteseite unter http://localhost:3000 zu.
+Greife auf die Punkteseite unter: http://localhost:3000 zu.
 
-Projektstruktur
+
+#### Projektstruktur
   src/server.js: Hauptdatei, die den Server startet.
   src/scoring.js: Enthält die Logik zur Berechnung der Punkte.
   tests/scoring.test.js: Jest-Testdatei.
 
-Tests
-Führe die Tests mit folgendem Befehl aus
-  npx jest
+#### Tests
+Führe die Tests mit folgendem Befehl aus:
+  `npx jest`
 
-Beiträge
+#### Beiträge
   Fühle dich frei, durch das Erstellen von Pull Requests beizutragen.
 
-Probleme und Verbesserungen
+#### Probleme und Verbesserungen
   Wenn du auf Probleme stößt oder Ideen zur Verbesserung des Projekts hast, öffne ein Issue.
-
-
-
-
-
-
-Estructura del Proyecto
-src/server.js: Archivo principal que inicia el servidor.
-src/scoring.js: Contiene la lógica para calcular los puntajes.
-tests/scoring.test.js: Archivo de pruebas Jest.
-Pruebas
-Ejecuta las pruebas con el siguiente comando:
-
-
-npx jest
-
-
-Contribuciones
-Siéntete libre de contribuir mediante la creación de pull requests.
-
-Problemas y Mejoras
-Si encuentras algún problema o tienes ideas para mejorar el proyecto, abre un issue.
