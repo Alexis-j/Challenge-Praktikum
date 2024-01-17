@@ -24,6 +24,7 @@ um Antworten aus einem Umfragesystem zu aggregieren und Punkte nach Geschlecht z
 #### Klone das Repository:
 
   `git clone git@github.com:Alexis-j/Challenge-Praktikum.git`
+  
   `cd Challenge-Praktikum`
 
 #### Installiere die Abhängigkeiten:
@@ -40,7 +41,9 @@ Greife auf die Punkteseite unter: http://localhost:3000 zu.
 #### Projektstruktur
 
   src/server.js: Hauptdatei, die den Server startet.
+
   src/scoring.js: Enthält die Logik zur Berechnung der Punkte.
+
   tests/scoring.test.js: Jest-Testdatei.
 
 #### Tests
