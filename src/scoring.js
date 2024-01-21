@@ -11,6 +11,27 @@ function roundToOneDecimal(value) {
   return parseFloat(value.toFixed(1));
 }
 
+// Calculates the average score for a set of responses
+function calculateAverage(responses) {
+  if (responses.length < 3) {
+    return null;
+  }
+
+  // Filters only responses with a numeric value in the 'rating' property
+  const validResponses = responses.filter(response => typeof response.rating === 'number');
+
+  // Checks if there are no valid responses after filtering
+  if (validResponses.length === 0) {
+    console.error('No valid responses with a numeric value to calculate the average.');
+    return null;
+  }
+
+  // Calculates the average only with valid responses
+  const totalRating = validResponses.reduce((sum, response) => sum + response.rating, 0);
+
+  return roundToOneDecimal(totalRating / validResponses.length);
+}
+
 // Calculates scores based on survey responses
 function calculateScores() {
   // Reads survey data
@@ -18,27 +39,6 @@ function calculateScores() {
 
   // Filters responses by gender
   const filterResponsesByGender = (gender) => surveyData.filter((response) => response.gender === gender);
-
-  // Calculates the average score for a set of responses
-  const calculateAverage = (responses) => {
-    if (responses.length < 3) {
-      return null;
-    }
-
-    // Filters only responses with a numeric value in the 'rating' property
-    const validResponses = responses.filter(response => typeof response.rating === 'number');
-
-    // Checks if there are no valid responses after filtering
-    if (validResponses.length === 0) {
-      console.error('No valid responses with numeric value to calculate the average.');
-      return null;
-    }
-
-    // Calculates the average only with valid responses
-    const totalRating = validResponses.reduce((sum, response) => sum + response.rating, 0);
-
-    return roundToOneDecimal(totalRating / validResponses.length);
-  };
 
   // Filters responses by gender
   const femaleResponses = filterResponsesByGender('female');
@@ -62,4 +62,9 @@ function calculateScores() {
   };
 }
 
-module.exports = { calculateScores };
+module.exports = {
+  calculateScores,
+  calculateAverage,
+  readSurveyData,
+  roundToOneDecimal,
+};
