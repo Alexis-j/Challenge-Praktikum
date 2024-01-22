@@ -35,7 +35,7 @@ um Antworten aus einem Umfragesystem zu aggregieren und Punkte nach Geschlecht z
 Starte den Server:
   `node src/server.js`
 
-Greife auf die Punkteseite unter: http://localhost:3000 zu.
+Greife auf die Punkteseite unter: http://localhost:3000/scores? zu.
 
 #### Projektstruktur:
 
